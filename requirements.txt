@@ -1,0 +1,4 @@
+# Python 3.12. fastembed runs all-MiniLM-L6-v2 through ONNX; pyarrow reads BEAM; the Claude Code CLI must be on PATH.
+fastembed==0.9.1
+pyarrow==26.0.0
+numpy==2.5.4
