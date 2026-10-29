@@ -24,6 +24,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 RUNS = os.environ.get("MEMLAB_RUNS", os.path.join(HERE, "runs"))
 LOCK = threading.Lock()
 ARMS = ["raw", "memory", "oracle_raw", "oracle_memory"]
+EXPLORE_ARMS = ["raw_tight", "memory_tight"]
+TIGHT_CHARS = 4000  # about 1,000 tokens, the budget in the paper's Table 2
 
 
 def path(name):
@@ -159,6 +161,11 @@ def contexts(c):
         mem = arms.memory_text(arms.memory_context(live, mem_vecs, v, len(raw)))
         out[(q["qid"], "raw")] = (raw, len(raw_turns))
         out[(q["qid"], "memory")] = (mem, mem.count("\n") + 1 if mem else 0)
+        # Exploratory, added after the primary result: both arms at the paper's 1,000-token budget.
+        tight_raw = arms.raw_budget_context(c, tv, v, TIGHT_CHARS)
+        tight_mem = arms.memory_text(arms.memory_context(live, mem_vecs, v, TIGHT_CHARS))
+        out[(q["qid"], "raw_tight")] = (arms.raw_text(tight_raw), len(tight_raw))
+        out[(q["qid"], "memory_tight")] = (tight_mem, tight_mem.count("\n") + 1 if tight_mem else 0)
         if q["sources"]:
             o_raw = arms.oracle_raw(c, q)
             o_mem = arms.oracle_memory(live, q)
@@ -196,7 +203,8 @@ def stage_answer(convs, workers, deadline):
 
 def stage_judge(convs, workers, deadline):
     qs = {q["qid"]: q for c in convs for q in c["questions"]}
-    have = {(r["qid"], r["arm"]) for r in read_jsonl(path("judgments.jsonl")) if r["ok"]}
+    # A reply the judge could not score after three tries stays unscored, as pre-registered.
+    have = {(r["qid"], r["arm"]) for r in read_jsonl(path("judgments.jsonl"))}
     tasks = [r for r in read_jsonl(path("answers.jsonl")) if r["ok"] and (r["qid"], r["arm"]) not in have]
 
     def work(r):

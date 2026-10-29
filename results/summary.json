@@ -1,0 +1,374 @@
+{
+  "primary": {
+    "diff": 5.58,
+    "lo": -2.16,
+    "hi": 13.62,
+    "n": 96,
+    "raw": 60.8,
+    "memory": 66.4
+  },
+  "primary_call": "Inconclusive at this size.",
+  "secondary": {
+    "lost_while_writing": {
+      "diff": -14.74,
+      "lo": -21.14,
+      "hi": -8.72,
+      "n": 89,
+      "oracle_raw": 80.5,
+      "oracle_memory": 65.8
+    },
+    "lost_while_writing_fires": true,
+    "lost_while_searching": {
+      "diff": -0.51,
+      "lo": -4.81,
+      "hi": 3.97,
+      "n": 87,
+      "oracle_memory": 64.4,
+      "memory": 63.9
+    },
+    "lost_while_searching_fires": false,
+    "raw_vs_oracle_raw": {
+      "diff": -21.64,
+      "lo": -29.41,
+      "hi": -14.0,
+      "n": 88,
+      "oracle_raw": 80.3,
+      "raw": 58.6
+    }
+  },
+  "by_type": {
+    "abstention": {
+      "raw": 95.0,
+      "memory": 85.0,
+      "raw_tight": 85.0,
+      "memory_tight": 85.0
+    },
+    "contradiction_resolution": {
+      "raw": 61.1,
+      "memory": 43.8,
+      "oracle_raw": 68.1,
+      "oracle_memory": 31.2,
+      "raw_tight": 48.8,
+      "memory_tight": 40.0
+    },
+    "event_ordering": {
+      "raw": 30.1,
+      "memory": 41.7,
+      "oracle_raw": 82.1,
+      "oracle_memory": 58.8,
+      "raw_tight": 16.1,
+      "memory_tight": 41.7
+    },
+    "information_extraction": {
+      "raw": 67.5,
+      "memory": 50.0,
+      "oracle_raw": 90.0,
+      "oracle_memory": 44.2,
+      "raw_tight": 55.8,
+      "memory_tight": 44.2
+    },
+    "instruction_following": {
+      "raw": 90.0,
+      "memory": 90.6,
+      "oracle_raw": 90.0,
+      "oracle_memory": 90.0,
+      "raw_tight": 82.5,
+      "memory_tight": 90.0
+    },
+    "knowledge_update": {
+      "raw": 47.5,
+      "memory": 62.5,
+      "oracle_raw": 60.0,
+      "oracle_memory": 62.5,
+      "raw_tight": 42.5,
+      "memory_tight": 67.5
+    },
+    "multi_session_reasoning": {
+      "raw": 43.4,
+      "memory": 64.5,
+      "oracle_raw": 72.2,
+      "oracle_memory": 70.9,
+      "raw_tight": 30.6,
+      "memory_tight": 52.2
+    },
+    "preference_following": {
+      "raw": 83.3,
+      "memory": 94.4,
+      "oracle_raw": 93.3,
+      "oracle_memory": 95.0,
+      "raw_tight": 75.8,
+      "memory_tight": 83.3
+    },
+    "summarization": {
+      "raw": 41.6,
+      "memory": 58.4,
+      "oracle_raw": 77.5,
+      "oracle_memory": 60.1,
+      "raw_tight": 25.3,
+      "memory_tight": 41.8
+    },
+    "temporal_reasoning": {
+      "raw": 60.0,
+      "memory": 77.5,
+      "oracle_raw": 90.0,
+      "oracle_memory": 75.0,
+      "raw_tight": 50.0,
+      "memory_tight": 70.0
+    }
+  },
+  "exploratory": {
+    "note": "Added after the primary result; not pre-registered. Both arms at about 1,000 tokens.",
+    "tight": {
+      "diff": 10.0,
+      "lo": 2.06,
+      "hi": 17.72,
+      "n": 99,
+      "raw_tight": 51.4,
+      "memory_tight": 61.4
+    },
+    "memory_tight_vs_memory": {
+      "diff": -5.42,
+      "lo": -9.46,
+      "hi": -1.65,
+      "n": 97,
+      "memory": 66.1,
+      "memory_tight": 60.6
+    },
+    "raw_tight_vs_raw": {
+      "diff": -11.14,
+      "lo": -16.11,
+      "hi": -6.39,
+      "n": 98,
+      "raw": 62.1,
+      "raw_tight": 50.9
+    },
+    "first_version_underfilled": {
+      "diff": 13.45,
+      "lo": 5.28,
+      "hi": 21.68,
+      "n": 99,
+      "raw_tight_underfilled": 47.7,
+      "memory_tight": 61.2
+    }
+  },
+  "build": [
+    {
+      "conversation": "1",
+      "category": "Coding",
+      "turns": 188,
+      "exchanges": 94,
+      "raw_chars": 523015,
+      "facts_extracted": 442,
+      "operations": {
+        "ADD": 278,
+        "UPDATE": 67,
+        "DELETE": 1,
+        "NONE": 99,
+        "invalid": 0,
+        "uncovered": 0
+      },
+      "fallbacks": 0,
+      "live": 277,
+      "deleted": 1,
+      "store_chars": 45142,
+      "calls": 186,
+      "cost_usd": 0.2133,
+      "call_seconds": 2178.3,
+      "sequential_update_seconds": 1121.4
+    },
+    {
+      "conversation": "4",
+      "category": "Math",
+      "turns": 212,
+      "exchanges": 106,
+      "raw_chars": 673796,
+      "facts_extracted": 335,
+      "operations": {
+        "ADD": 175,
+        "UPDATE": 52,
+        "DELETE": 1,
+        "NONE": 107,
+        "invalid": 0,
+        "uncovered": 0
+      },
+      "fallbacks": 0,
+      "live": 174,
+      "deleted": 1,
+      "store_chars": 30682,
+      "calls": 211,
+      "cost_usd": 0.204,
+      "call_seconds": 2288.3,
+      "sequential_update_seconds": 1144.7
+    },
+    {
+      "conversation": "6",
+      "category": "Writing Assistant & Learning",
+      "turns": 258,
+      "exchanges": 129,
+      "raw_chars": 589867,
+      "facts_extracted": 396,
+      "operations": {
+        "ADD": 239,
+        "UPDATE": 84,
+        "DELETE": 4,
+        "NONE": 71,
+        "invalid": 0,
+        "uncovered": 0
+      },
+      "fallbacks": 0,
+      "live": 235,
+      "deleted": 4,
+      "store_chars": 37715,
+      "calls": 257,
+      "cost_usd": 0.231,
+      "call_seconds": 2633.7,
+      "sequential_update_seconds": 1364.1
+    },
+    {
+      "conversation": "11",
+      "category": "Philosophical or Ethical Discussion",
+      "turns": 388,
+      "exchanges": 194,
+      "raw_chars": 900933,
+      "facts_extracted": 582,
+      "operations": {
+        "ADD": 290,
+        "UPDATE": 119,
+        "DELETE": 4,
+        "NONE": 172,
+        "invalid": 0,
+        "uncovered": 0
+      },
+      "fallbacks": 0,
+      "live": 286,
+      "deleted": 4,
+      "store_chars": 47193,
+      "calls": 388,
+      "cost_usd": 0.3589,
+      "call_seconds": 3910.3,
+      "sequential_update_seconds": 1950.5
+    },
+    {
+      "conversation": "13",
+      "category": "Asking Recommendation",
+      "turns": 310,
+      "exchanges": 155,
+      "raw_chars": 518056,
+      "facts_extracted": 451,
+      "operations": {
+        "ADD": 234,
+        "UPDATE": 118,
+        "DELETE": 3,
+        "NONE": 97,
+        "invalid": 0,
+        "uncovered": 0
+      },
+      "fallbacks": 0,
+      "live": 231,
+      "deleted": 3,
+      "store_chars": 38257,
+      "calls": 310,
+      "cost_usd": 0.255,
+      "call_seconds": 3180.2,
+      "sequential_update_seconds": 1632.5
+    }
+  ],
+  "answers": {
+    "raw": {
+      "n": 100,
+      "mean_context_chars": 21291,
+      "mean_context_items": 10.0,
+      "mean_input_tokens": 8485,
+      "mean_seconds": 11.86,
+      "cost_usd": 0.2363
+    },
+    "memory": {
+      "n": 100,
+      "mean_context_chars": 20956,
+      "mean_context_items": 121.0,
+      "mean_input_tokens": 8276,
+      "mean_seconds": 11.98,
+      "cost_usd": 0.2366
+    },
+    "oracle_raw": {
+      "n": 90,
+      "mean_context_chars": 3735,
+      "mean_context_items": 3.1,
+      "mean_input_tokens": 2207,
+      "mean_seconds": 9.94,
+      "cost_usd": 0.0838
+    },
+    "oracle_memory": {
+      "n": 90,
+      "mean_context_chars": 1591,
+      "mean_context_items": 7.5,
+      "mean_input_tokens": 1428,
+      "mean_seconds": 9.78,
+      "cost_usd": 0.0669
+    },
+    "raw_tight": {
+      "n": 100,
+      "mean_context_chars": 3998,
+      "mean_context_items": 3.6,
+      "mean_input_tokens": 2302,
+      "mean_seconds": 10.17,
+      "cost_usd": 0.0864
+    },
+    "memory_tight": {
+      "n": 100,
+      "mean_context_chars": 3878,
+      "mean_context_items": 20.8,
+      "mean_input_tokens": 2220,
+      "mean_seconds": 10.27,
+      "cost_usd": 0.0968
+    },
+    "raw_tight_underfilled": {
+      "n": 100,
+      "mean_context_chars": 2097,
+      "mean_context_items": 2.7,
+      "mean_input_tokens": 1604,
+      "mean_seconds": 9.31,
+      "cost_usd": 0.0711
+    }
+  },
+  "coverage": {
+    "questions": 90,
+    "all_source_turns_in_memory": 90,
+    "no_source_turn_in_memory": 0,
+    "source_turn_recall_memory_provenance": 100.0,
+    "source_turn_recall_raw_top10": 36.0,
+    "oracle_memory_recall_in_memory_arm": 78.1,
+    "mean_memory_items_shown": 123.8
+  },
+  "judge_cost_usd": 0.3327,
+  "unscored": [
+    [
+      "c4-preference_following-1",
+      "memory"
+    ],
+    [
+      "c6-contradiction_resolution-0",
+      "raw"
+    ],
+    [
+      "c6-instruction_following-0",
+      "memory"
+    ],
+    [
+      "c11-instruction_following-1",
+      "memory"
+    ],
+    [
+      "c13-contradiction_resolution-1",
+      "oracle_raw"
+    ],
+    [
+      "c6-instruction_following-0",
+      "raw_tight_underfilled"
+    ],
+    [
+      "c11-multi_session_reasoning-1",
+      "raw_tight"
+    ]
+  ]
+}

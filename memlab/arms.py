@@ -25,6 +25,25 @@ def raw_context(conv, turn_vecs, qvec):
     return [conv["turns"][i] for i in picked]
 
 
+def raw_budget_context(conv, turn_vecs, qvec, budget_chars):
+    """Turns by cosine, best first, while they fit the budget; the first turn that does not fit is
+    cut to fill what is left. Exploratory: added after the primary result, for the paper's tight
+    setting. A first version stopped at the turn that did not fit and left the raw arm with about
+    half the memory arm's text; it is kept in runs/ as `raw_tight_underfilled`."""
+    chosen, used = [], 0
+    for i in embed.top_k(qvec, turn_vecs, len(turn_vecs)):
+        t = conv["turns"][i]
+        size = len(data.render_turn(t)) + 2
+        if used + size > budget_chars:
+            room = budget_chars - used - (len(data.render_turn(t)) - len(t["text"])) - 2
+            if room > 0:
+                chosen.append(t | {"text": t["text"][:room]})
+            break
+        chosen.append(t)
+        used += size
+    return sorted(chosen, key=lambda t: t["id"])
+
+
 def memory_context(live, mem_vecs, qvec, budget_chars):
     chosen, used = [], 0
     for j in embed.top_k(qvec, mem_vecs, len(live)):
